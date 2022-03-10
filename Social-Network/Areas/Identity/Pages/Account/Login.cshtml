@@ -10,9 +10,8 @@
     <div class="col-md-4 logMain">
         <section>
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
+                <h4 style="color: black; font-weight: bold">LOGIN TO ACCOUNT</h4>
+                <hr  style="height: 3px; background-color: chocolate;" />
                 <div class="form-group">
                     <label asp-for="Input.UserName"></label>
                     <input asp-for="Input.UserName" class="form-control" />
@@ -23,6 +22,8 @@
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
+
+
                 <div class="form-group">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
@@ -31,19 +32,20 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn btn-outline-dark">Log in</button>
                 </div>
-                <div class="form-group">
+
+
+                <div class="form-group" style="color: white;">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword" style="color: white;">Forgot your password?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color: white;">Register as a new user</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" style="color: white;">Resend email confirmation</a>
                     </p>
                 </div>
             </form>
@@ -56,19 +58,26 @@
     <partial name="_ValidationScriptsPartial" />
     <style>
         .logMain {
-            display: flex;
-            height: 470px;
+            height: auto;
             width: 350px;
-            background-color: rgb(0,0,0,0.3);
+            background-color: rgb(0,0,0,0.4);
             border-radius: 20px;
-            margin-left: 34%;
             box-shadow: 16px 25px 32px rgba(0,0,0,0.25), 16px 16px 16px rgba(0,0,0,0.22);
-            margin-bottom: 2rem;
-            color: white;
+            color: black;
             text-align: center;
-            padding-left: 2rem;
             padding-top: 15px;
-            margin-top: 1rem;
+            padding-bottom: 15px;
+            margin-top: 7rem;
+            margin-left: 31%;
         }
+
+        @@media screen and (max-width:800px) {
+            .logMain {
+                margin-left: 80px;
+                margin-right: 40px;
+                margin-top: 7rem;
+            }
+        }
+
     </style>
 }

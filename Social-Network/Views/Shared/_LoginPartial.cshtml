@@ -31,10 +31,10 @@ else
     <div class="regMain">
         <div style="display: inline;">
             <div class="but1" style="display: inline-block">
-                <a type="button" class="btn btn-primary  btn-sm nav-link text-white butReg" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                <a type="button" class="btn btn-outline-light butReg" asp-area="Identity" asp-page="/Account/Register">Register</a>
             </div>
             <div class="but2" style="display: inline-block">
-                <a type="button" class="btn btn-primary  btn-sm nav-link text-white butReg" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                <a type="button" class="btn btn-outline-light butReg" asp-area="Identity" asp-page="/Account/Login">Login</a>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@ else
         box-shadow: 16px 25px 32px rgba(0,0,0,0.25), 16px 16px 16px rgba(0,0,0,0.22);
         text-align: center;
         z-index: 3;
-        margin-top: 1.3rem;
+        margin-top: 1.5rem;
     }
 
     .but1, .but2 {
@@ -65,9 +65,8 @@ else
     }
 
     .imgFone {
-        width: 100vw;
         height: 550px;
-        margin-left: -13.3rem;
+        margin-left: -22.9rem;
         box-shadow: 2px 15px 15px rgba(0,0,0,0.6);
     }
 
@@ -77,7 +76,7 @@ else
 
     @@media screen and (max-width: 1700px) {
         .imgFone {
-            width: 100vw;
+            width: 90vw;
             margin-right: -10rem;
             height: 530px;
         }
@@ -158,6 +157,7 @@ else
             width: 134vw;
             height: 500px;
             margin-right: -10rem;
+            margin-left: -13.3rem;
         }
 
         .regMain {
@@ -168,6 +168,7 @@ else
         .butReg {
             margin-top: 0.7rem;
             width: 150px;
+            margin-right: 3rem;
         }
 
     }
@@ -175,9 +176,9 @@ else
 
         .imgFone {
             width: 134vw;
-            margin-right: -100rem;
             height: 500px;
             margin-right: -10rem;
+            margin-left: -13.3rem;
         }
         .regMain {
             height: 80px;
