@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-Social_Network-BDB147E1-98CB-4CD5-AAEB-BD965106B691</UserSecretsId>
+    <RootNamespace>Social_Network</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ImageProcessor" Version="2.9.1" />
+    <PackageReference Include="ImageProcessor.Plugins.WebP" Version="1.3.0" />
+    <PackageReference Include="ImageProcessor.Web" Version="4.12.1" />
+    <PackageReference Include="ImageProcessor.Web.Config" Version="2.6.0" />
+    <PackageReference Include="ImageProcessor.Web.Plugins.AzureBlobCache" Version="1.7.1" />
+    <PackageReference Include="ImageProcessor.Web.PostProcessor" Version="2.0.0" />
+    <PackageReference Include="MailKit" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="MimeKit" Version="3.1.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\StandertController\" />
+  </ItemGroup>
+
+</Project>

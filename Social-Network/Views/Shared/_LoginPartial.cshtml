@@ -1,0 +1,209 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Social_Network.Data.social_network.User> SignInManager
+@inject UserManager<Social_Network.Data.social_network.User> UserManager
+@{
+    var user = UserManager.GetUserAsync(User).Result;
+}
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <partial name="MainHome" />
+}
+else
+{
+    <div class="slideshow-container">
+
+        <div class="mySlides">
+            <img class="imgFone" src="/storage/imgFone/FoneOne1.jpg" />
+        </div>
+
+        <div class="mySlides" >
+            <img class="imgFone" src="/storage/imgFone/FoneTwo.jpg" />
+        </div>
+
+        <div class="mySlides" >
+            <img class="imgFone" src="/storage/imgFone/FoneThrea.jpg" />
+        </div>
+
+    </div>
+
+    <div class="regMain">
+        <div style="display: inline;">
+            <div class="but1" style="display: inline-block">
+                <a type="button" class="btn btn-primary  btn-sm nav-link text-white butReg" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </div>
+            <div class="but2" style="display: inline-block">
+                <a type="button" class="btn btn-primary  btn-sm nav-link text-white butReg" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+
+    .regMain {
+        height: 60px;
+        width: 100%;
+        background-color: rgb(0,0,0,0.44);
+        border-radius: 20px;
+        box-shadow: 16px 25px 32px rgba(0,0,0,0.25), 16px 16px 16px rgba(0,0,0,0.22);
+        text-align: center;
+        z-index: 3;
+        margin-top: 1.3rem;
+    }
+
+    .but1, .but2 {
+        height: 40px;
+        margin-left: 40px;
+        border-radius: 10px;
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding-top: -10px;
+        margin-top: 11px;
+        border-radius: 8px;
+    }
+
+    .imgFone {
+        width: 100vw;
+        height: 550px;
+        margin-left: -13.3rem;
+        box-shadow: 2px 15px 15px rgba(0,0,0,0.6);
+    }
+
+    .butReg {
+        width: 230px;
+    }
+
+    @@media screen and (max-width: 1700px) {
+        .imgFone {
+            width: 100vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 1600px) {
+        .imgFone {
+            width: 110vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 1500px) {
+        .imgFone {
+            width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 1400px) {
+        .imgFone {
+            width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 1300px) {
+        .imgFone {
+            width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 1200px) {
+        .imgFone {
+            width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 1100px) {
+        .imgFone {
+            width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 1050px) {
+        .imgFone {
+            max-width: 1000vw;
+            margin-right: -10rem;
+        }
+    }
+    @@media screen and (max-width: 1000px) {
+        .imgFone {
+            width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+        
+    }
+    @@media screen and (max-width:900px) {
+        .imgFone {
+            max-width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width:800px) {
+        .imgFone {
+            max-width: 1000vw;
+            margin-right: -10rem;
+            height: 530px;
+        }
+    }
+    @@media screen and (max-width: 780px) {
+
+        .imgFone {
+            width: 134vw;
+            height: 500px;
+            margin-right: -10rem;
+        }
+
+        .regMain {
+            height: 80px;
+            margin-top: 2.7rem;
+        }
+
+        .butReg {
+            margin-top: 0.7rem;
+            width: 150px;
+        }
+
+    }
+    @@media screen and (max-width: 100px) {
+
+        .imgFone {
+            width: 134vw;
+            margin-right: -100rem;
+            height: 500px;
+            margin-right: -10rem;
+        }
+        .regMain {
+            height: 80px;
+            margin-top: 2.5rem;
+        }
+    }
+
+</style>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+
+        if (slideIndex > slides.length) { slideIndex = 1 }
+
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 9900); // Change image every 2 seconds
+    }
+</script>
