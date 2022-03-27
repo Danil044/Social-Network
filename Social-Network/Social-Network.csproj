@@ -30,7 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\StandertController\" />
+    <Folder Include="Controllers\trello\" />
+    <Folder Include="wwwroot\storage\img_post\" />
   </ItemGroup>
 
 </Project>

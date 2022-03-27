@@ -11,7 +11,7 @@
         <section>
             <form id="account" method="post">
                 <h4 style="color: black; font-weight: bold">LOGIN TO ACCOUNT</h4>
-                <hr  style="height: 3px; background-color: chocolate;" />
+                <hr style="height: 3px; background-color: chocolate;" />
                 <div class="form-group">
                     <label asp-for="Input.UserName"></label>
                     <input asp-for="Input.UserName" class="form-control" />
@@ -49,6 +49,11 @@
                     </p>
                 </div>
             </form>
+            <div>
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/storage/icon/exit-icon.png" style="height: 15px; margin-top: 10px;" />
+                </a>
+            </div>
         </section>
     </div>
 

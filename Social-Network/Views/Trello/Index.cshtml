@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Social_Network.Data.social_network.Post>
+@{
+    //ViewData["Title"] = "Trello" + Model.Title;
+    //ViewData["ParallaxTitle"] = "Trello" + Model.Title;
+    //ViewData["ParallaxText"] = "Trello e.t.c";
+}
+
+
+<div class="Bodydiv">
+    <div class="OnedivA">
+        <div class="OnedivB">
+            @foreach (var models in Model)
+            {
+                <div class="Add poster">
+                    <div class="Thrediv ">
+                        <a asp-controller="Trello" asp-route-id="@models.Id" >
+                            <header><h1>@Html.DisplayFor(Model => models.Text)</h1></header>
+                        </a>
+
+                        <ul style="list-style-type: none;">
+                            @foreach (var image in models.Image)
+                            {
+                                <li>
+                                    <img src="@Html.DisplayFor(Model => image.URL)"/>
+                                </li>
+                            }
+                        </ul>
+
+                    </div>
+
+                    <div id="AddCard">
+                        <form asp-action="CreateImage" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input class="btn btn-default" type="file" name="URL" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="Twodiv">
+        <div class="col-md-4">
+            <form asp-action="CreatePost">
+                <div class="form-group">
+                    <label class="control-label"> Текст поста </label>
+                    <input name="Text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

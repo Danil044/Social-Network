@@ -47,6 +47,7 @@ namespace Social_Network.Areas.Identity.Pages.Account
 
             [Required]
             [ViewData]
+            [Display(Name = "Nick")]
             public string UserName { get; set; }
 
             [Required]

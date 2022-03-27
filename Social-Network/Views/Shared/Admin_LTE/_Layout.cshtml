@@ -8,20 +8,19 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body style="background: url(/storage/imgFone/FoneBasic.jpg); background-position: center center; ">
-    <header style="background-color: rgb(0,0,0,0.5); position: fixed; left: 0; top: 0; width: 100vw; height: 67px; margin-bottom: 4rem;">
+<body style="background: url(/storage/imgFone/FoneOsnove.png); background-position: center center; ">
+    <header style="background: linear-gradient(to top left, rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.4)); position: fixed; left: 0; top: 0; width: 100vw; height: 67px; margin-bottom: 4rem; text-align: center; ">
         <nav>
-            <div class="container" style="padding-left: 29%; padding-bottom: 15px;">
+            <div class="container" style="padding-bottom: 15px; text-align: center;">
                 <img src="/storage/img/logo.png" style="height: 65px; margin-bottom: 15px" />
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 32px; color: Sienna; font-weight: bold; ">Mole Hole</a>
+                <a  asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 32px; color: Sienna; font-weight: bold; font-family: Trattatello, fantasy; text-decoration: none;">Mole Hole</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!--
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-
-                    <!--
                         --
                         background: linear-gradient(to top left, AntiqueWhite, NavajoWhite)
                         --
@@ -33,9 +32,10 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
                         </ul>
-                    -->
+                    
 
-                </div>
+                    </div>
+                -->
             </div>
         </nav>
     </header>
@@ -48,7 +48,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" style="height: 67px; background-color: rgb(0,0,0,0.5); position: fixed;">
+    <footer class="border-top footer text-muted" style="height: 67px; background: linear-gradient(to top left, rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.4));; position: fixed;">
         <div class="container">
         </div>
     </footer>

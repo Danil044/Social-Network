@@ -5,101 +5,421 @@
     var user = UserManager.GetUserAsync(User).Result;
 }
 
-<div style="margin-top: 7.5rem;">
-    <div class="MainHome" >
-        <header >
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <h1 style="text-align:center;">
-                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-                            <p style="color: white;">@User.Identity.Name</p>
-                            <p style="color: rgb(255, 255, 255, 0.5); font-size: 12px; margin-top: -10px;">@user.Surname_Name</p>
-                            <img src="@user.AvatarURL" style="height: 140px;width: 140px ;border-radius: 120px;" />
-                        </a>
-                    </h1>
-                </li>
-                <li class="nav-item">
-                    <h1 style="text-align:center; font-size: 15px; color: white;">
-                        <p>@user.Status</p>
-                    </h1>
-                </li>
+<div>
+    <div class="MainBody">
+        <div class="MainHome">
+            <header>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="HeadH1">
+                            <div class="Level2_1">
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
 
-                <li class="nav-item" style=" margin-top: 10rem;">
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="nav-link btn btn-link text-dark" style=" margin-left: 46%;">
-                            <p style="color: white;">Exit</p>
-                        </button>
-                    </form>
-                </li>
-            </ul>
-        </header>
+                                    <div class="Level3_1">
+                                        <p style="color: white;">@User.Identity.Name</p>
+                                    </div>
+                                    <div class="Level3_2">
+                                        <p style="color: rgb(255, 255, 255, 0.5); font-size: 12px; margin-top: -20px;">@user.Surname_Name</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="Level2_2">
+                                <div class="Level3_3">
+                                    <img src="@user.AvatarURL" class="ImgAvatar" />
+                                </div>
+                                <div class="Level3_4">
+                                    <p>@user.Status</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                  
+
+                    <li class="nav-item ExitHome">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-dark" style=" margin-left: 2%; margin-bottom: 3%;">
+                                <img src="/storage//icon/exit-icon.png" style="height: 15px;" />
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <div class="MainRibbon">
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+        </div>
     </div>
-    <div class="MainRibbon">
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-       <p>hello</p>
-    </div>
+
 </div>
-
 
 <style>
 
+    .ImgAvatar {
+        height: 120px;
+        width: 120px;
+        border-radius: 120px;
+    }
+
+    .MainBody {
+        display: flex;
+        margin-top: 7.3rem;
+    }
+
     .MainHome {
         position: fixed;
-        background-color: rgb(0, 0, 0, 0.6);
-        height: 475px;
+        display: inline-block;
+        background-color: rgb(0, 0, 0, 0.66);
+        height: 485px;
         width: 380px;
         margin-bottom: 2rem;
-        border-radius: 18px;
-        margin-left: -6rem;
+        border-radius: 6px;
+        margin-left: -8.5rem;
         box-shadow: 15px 20px 30px rgba(0,0,0,0.35), 15px 20px 20px rgba(0,0,0,0.35);
     }
 
     .MainRibbon {
         position: fixed;
-        background-color: rgb(0, 0, 0, 0.6);
-        height: 475px;
-        width: 840px;
+        display: inline-block;
+        background-color: rgb(0, 0, 0, 0.66);
+        height: 485px;
+        width: 965px;
         margin-bottom: 2rem;
-        border-radius: 18px;
-        margin-left: 23rem;
+        border-radius: 6px;
+        margin-left: 18rem;
         word-wrap: break-word;
-        overflow-y:scroll;
+        overflow-y: scroll;
         box-shadow: 15px 20px 30px rgba(0,0,0,0.3), 15px 20px 20px rgba(0,0,0,0.3);
     }
 
     .MainRibbon::-webkit-scrollbar {
         width: 0px;
     }
-   
+
+    .HeadH1 {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .Level2_1{
+       font-size: 38px;
+       margin-top: 1.5rem;
+    }
+
+    .Level2_2 {
+        margin-top: 1rem;
+    }
+
+    .Level3_4 {
+        font-size: 15px;
+        color: white;
+        margin-top: 15px;
+    }
+
+    @@media screen and (max-width: 1400px) {
+        .MainHome {
+            width: 290px;
+            margin-left: -5rem;
+        }
+
+        .MainRibbon {
+            width: 900px;
+            margin-left: 16rem;
+        }
+    }
+
+    @@media screen and (max-width: 1300px) {
+        .MainHome {
+            width: 280px;
+            margin-left: -3rem;
+        }
+
+        .MainRibbon {
+            width: 880px;
+            margin-left: 16rem;
+        }
+
+        .ImgAvatar {
+            height: 110px;
+            width: 110px;
+            border-radius: 120px;
+        }
+    }
+
+    @@media screen and (max-width: 1200px) {
+        .MainHome {
+            width: 250px;
+            margin-left: -5.5rem;
+        }
+        .MainRibbon {
+            width: 800px;
+            margin-left: 13rem;
+        }
+
+        .ImgAvatar {
+            height: 100px;
+            width: 100px;
+            border-radius: 120px;
+        }
+    }
+
+    @@media screen and (max-width: 1150px) {
+        .MainHome {
+            width: 230px;
+            margin-left: -3.5rem;
+        }
+
+        .MainRibbon {
+            width: 740px;
+            margin-left: 14rem;
+        }
+    }
+
+    @@media screen and (max-width:1070px) {
+        .MainBody {
+            display: inline-block;
+            text-align: center;
+            margin-top: 5.8rem;
+        }
+
+        .MainHome {
+            position: static;
+            height: 70px;
+            width: 750px;
+            margin-bottom: 2rem;
+            margin-right: 1.5rem;
+            margin-left: -1.5rem;
+        }
+
+        .HeadH1 {
+            text-align: left;
+            margin-top: -21px;
+        }
+
+        .MainRibbon {
+            position: static;
+            height: 390px;
+            width: 750px;
+            margin-right: 1.5rem;
+            margin-left: -1.3rem;
+        }
+
+        .HeadH1 {
+            display:flex;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .Level2_1 {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 32px;
+            margin-top: 0;
+        }
+        .Level2_2 {
+            display: inline-block;
+            margin-left: 14.6rem;
+            margin-top: 25.5px;
+        }
+        .Level3_1{
+            margin-top: 14px;
+        }
+        .Level3_3 {
+            display: inline-block;
+        }
+        .Level3_4 {
+            display: inline-block;
+            margin-left: 10rem;
+            font-size: 15px;
+        }
+
+        .ImgAvatar {
+            height: 62px;
+            width: 62px;
+            border-radius: 120px;
+        }
+    }
+    @@media screen and (max-width:990x) {
+        .MainBody {
+            display: inline-block;
+            text-align: center;
+            margin-top: 5.5rem;
+        }
+
+        .MainHome {
+            position: static;
+            height: 70px;
+            width: 750px;
+            margin-bottom: 2rem;
+            margin-right: 1.2rem;
+            margin-left: auto;
+        }
+
+        .MainRibbon {
+            position: static;
+            height: 390px;
+            width: 750px;
+            margin-right: 1.2rem;
+            margin-left: auto;
+        }
+
+        .ImgAvatar {
+            height: 62px;
+            width: 62px;
+            border-radius: 120px;
+        }
+
+        .Level2_2 {
+            margin-left: 10.7rem;
+        }
+        .Level3_4 {
+            margin-left: 9rem;
+        }
+    }
+    @@media screen and (max-width:900px) {
+        .MainBody {
+            display: inline-block;
+            text-align: center;
+            margin-top: 6.3rem;
+        }
+
+        .MainHome {
+            position: static;
+            height: 70px;
+            width: 620px;
+            margin-bottom: 2rem;
+            margin-right: 1.5rem;
+            margin-left: auto;
+        }
+
+        .MainRibbon {
+            position: static;
+            height: 380px;
+            width: 620px;
+            margin-right: 1.5rem;
+            margin-left: auto;
+        }
+
+        .ImgAvatar {
+            height: 62px;
+            width: 62px;
+            border-radius: 120px;
+        }
+
+        .Level3_4 {
+            font-size: 14px;
+        }
+
+        .Level2_2 {
+            margin-left: 10rem;
+        }
+        .Level3_4 {
+            margin-left: 8rem;
+        }
+    }
+    @@media screen and (max-width:880px) {
+        .MainBody {
+            display: inline-block;
+            text-align: center;
+            margin-top: 7rem;
+        }
+
+        .MainHome {
+            position: static;
+            height: 70px;
+            width: 550px;
+            margin-bottom: 2rem;
+            margin-right: 2rem;
+            margin-left: -1.1rem;
+        }
+
+        .MainRibbon {
+            position: static;
+            height: 380px;
+            width: 550px;
+            margin-right: 2rem;
+            margin-left: -1.1rem;
+        }
+
+        .ImgAvatar {
+            height: 62px;
+            width: 62px;
+            border-radius: 120px;
+        }
+
+        .Level2_2 {
+            margin-left: 8.9em;
+        }
+        .Level3_4 {
+            margin-left: 6rem;
+        }
+    }
+    @@media screen and (max-width:600px) {
+        .MainBody {
+            display: inline-block;
+            text-align: center;
+            margin-top: 7rem;
+        }
+
+        .MainHome {
+            position: static;
+            height: 70px;
+            width: 430px;
+            margin-bottom: 2rem;
+            margin-right: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .MainRibbon {
+            position: static;
+            height: 400px;
+            width: 430px;
+            margin-right: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .ImgAvatar {
+            height: 62px;
+            width: 62px;
+            border-radius: 120px;
+        }
+
+        .Level2_2 {
+            margin-left: 5.3rem;
+        }
+        .Level3_4 {
+            margin-left: 4rem;
+        }
+    }
 
 </style>

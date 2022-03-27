@@ -49,7 +49,7 @@ namespace Social_Network.Areas.Identity.Pages.Account
         {
             [Required]
             [ViewData]
-            [Display(Name = "UserName")]
+            [Display(Name = "Nick")]
             public string UserName { get; set; }
 
             [Required]
@@ -59,7 +59,7 @@ namespace Social_Network.Areas.Identity.Pages.Account
 
             [Required]
             [ViewData]
-            [Display(Name = "PhoneNumber")]
+            [Display(Name = "Phone")]
             public string PhoneNumber { get; set; }
 
             [Required]

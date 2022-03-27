@@ -33,7 +33,7 @@ namespace Social_Network.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [ViewData]
-            [Display(Name = "User name")]
+            [Display(Name = "Nick")]
             public string User_Name { get; set; }
 
             [ViewData]
@@ -41,11 +41,11 @@ namespace Social_Network.Areas.Identity.Pages.Account.Manage
             public string Surname_Name { get; set; }
 
             [ViewData]
-            [Display(Name = "User status")]
+            [Display(Name = "Status")]
             public string Status { get; set; }
 
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Phone")]
             public string PhoneNumber { get; set; }
 
             [Display(Name = "Photo")]
