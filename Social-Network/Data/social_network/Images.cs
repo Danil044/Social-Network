@@ -13,6 +13,7 @@ namespace Social_Network.Data.social_network
         public Guid Id { get; set; }
         
         public string URL { get; set;}
+        public Guid PostId { get; set; }
         public Post Post { get; set; }
         public DateTime CreateAt { get; set; }
     }

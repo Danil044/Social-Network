@@ -16,63 +16,53 @@ namespace Social_Network.Controllers.trello
         private readonly ApplicationDbContext _context;
         IWebHostEnvironment _appEnvironment;
 
-
         public TrelloController(ApplicationDbContext context,
-                        IWebHostEnvironment appEnvironment)
+               IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Images.ToListAsync());
-        }
-
-        public async Task<IActionResult> ShowColumns(Guid id)
+        public async Task<IActionResult> Index(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var Postse = _context.Posts.First(b => b.Id == id);
+            var autersID = _context.Users.First(a => a.Id == id);
 
-            ViewData["Title"] = Postse.CreateAt;
-            ViewData["ParallaxTitle"] = Postse.Text;
-            ViewData["ParallaxText"] = "Informatiom e.t.c";
+            ViewData["AuthorId"] = autersID.Id;
 
-            ViewData["Post"] = Postse.Id;
-
-            var img = _context.Images
-                      .First(c => c.PostId == id);
-
-            if (img == null)
+            var post = _context.Posts
+                .Include(c => c.Image)
+                .Where(c => c.AuthorId == id);
+       
+            if (post == null)
             {
                 return NotFound();
             }
 
-            return View(await img.ToListAsync());
+            return View(await post.ToListAsync());
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreatePost([Bind("Id,Text,CreateAt")] Post post)
+        public async Task<IActionResult> CreatePost([Bind("Id, AuthorId, Text, CreateAt")] Post post)
         {
             if (ModelState.IsValid)
             {
                 post.Id = Guid.NewGuid();
                 _context.Add(post);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ShowColumns), new { Id = post.Id });
+                return RedirectToAction(nameof(Index), new { Id = post.AuthorId });
             }
             return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateImage([Bind("Id, Post, CreateAt")] Images images, IFormFile fileToPost)
+        public async Task<IActionResult> CreateImage([Bind("Id, PostId, CreateAt")] Images images, IFormFile fileToPost, string AuthorId)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +70,7 @@ namespace Social_Network.Controllers.trello
                 images.URL = await Helpers.Media.UploadImage(fileToPost, "img_post");
                 _context.Add(images);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ShowColumns), new { Id = images.Post });
+                return RedirectToAction(nameof(Index), new { Id = AuthorId });
             }
             return RedirectToAction(nameof(Index));
         }

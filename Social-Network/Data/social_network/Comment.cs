@@ -14,6 +14,9 @@ namespace Social_Network.Data.social_network
 
         public string Text { get; set; }
         [Required]
+
+        public Guid PostId { get; set; }
+
         public Post Post { get; set;}
         [Required]
 

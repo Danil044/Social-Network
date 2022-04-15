@@ -1,61 +1,135 @@
 ﻿@model IEnumerable<Social_Network.Data.social_network.Post>
 @{
-    //ViewData["Title"] = "Trello" + Model.Title;
-    //ViewData["ParallaxTitle"] = "Trello" + Model.Title;
-    //ViewData["ParallaxText"] = "Trello e.t.c";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="Level1_1">
 
-<div class="Bodydiv">
-    <div class="OnedivA">
-        <div class="OnedivB">
+    <hr style="height: 2px; background: linear-gradient(to right, #99ffcc 0%, #ffffff 100%); margin-top: 2.6rem; margin-bottom: 1.5rem; margin-left: 18px; margin-right: 18px; border-radius: 10px; " />
+
+    <div class="Level2_2">
+        <div>
+            <form asp-action="CreatePost">
+                <div>
+                    <label style="font-family: Trattatello, fantasy; font-size: 20px;  margin-left: 5%;">Add text for post</label>
+                </div>
+                <div>
+                    <input type="hidden" name="AuthorId" value="@ViewBag.AuthorId" />
+                    <input name="Text" maxlength="1600" style="display: inline-block; width: 83%; margin-left: 5%; margin-right: 1%; margin-top: 1.3rem; background-color: rgb(0, 0, 0, 0.05); border-bottom-color: black; border-top: none; border-right: none; border-left: none; font-size: 18px; height: 42px; border-radius: 15px; " />
+                    <button style="display: inline-block; background-color: rgb(0, 0, 0, 0); border-bottom: none; border-top: none; border-right: none; border-left: none; border-radius: 120px; "><img src="/storage/icon/free-icon-add.png" style="height: 35px; width: 35px;" /></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr style="height: 2px; background: linear-gradient(to right, #ffffff 0%, #99ffcc 100%); margin-top: 2rem; margin-bottom: 1.5rem; margin-left: 18px; margin-right: 18px; border-radius: 10px; " />
+
+    <div class="Level2_1">
+        <div class="Level3_1">
             @foreach (var models in Model)
             {
-                <div class="Add poster">
-                    <div class="Thrediv ">
-                        <a asp-controller="Trello" asp-route-id="@models.Id" >
-                            <header><h1>@Html.DisplayFor(Model => models.Text)</h1></header>
-                        </a>
+                <div class="Level4_1">
 
-                        <ul style="list-style-type: none;">
-                            @foreach (var image in models.Image)
-                            {
-                                <li>
-                                    <img src="@Html.DisplayFor(Model => image.URL)"/>
-                                </li>
-                            }
-                        </ul>
+                    <div class="level5_1">
+                        <div class="level6_1">
+                            <a asp-controller="Trello" asp-route-id="@models.Id" style="text-decoration: none; text-align: justify;">
+                                <header><p style="color: black; font-size: 18px;">@Html.DisplayFor(Model => models.Text)</p></header>
+                            </a>
+                        </div>
 
-                    </div>
+                        <div class="level6_2">
+                            <form asp-action="CreateImage" enctype="multipart/form-data">
+                                <input type="hidden" name="AuthorId" value="@ViewBag.AuthorId" />
+                                <input type="hidden" name="PostId" value="@models.Id" />
+                                <label style="display: inline-block;">
+                                    <img src="/storage/icon/premium-icon-trash (2).png" style="height: 25px; width: 25px; border-radius: 5px;" title="Add photo" />
+                                    <input name="fileToPost" type="file" multiple accept="image/*" hidden />
+                                </label>
+                                <div style="display: inline-block;">
+                                    <button style="background-color: rgb(0, 0, 0, 0); border-radius: 120px; border-bottom: none; border-top: none; border-right: none; border-left: none;"><img src="/storage/icon/plus-icon.png" style="height: 25px; width: 25px;" /></button>
+                                </div>
+                            </form>
+                        </div>
 
-                    <div id="AddCard">
-                        <form asp-action="CreateImage" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <input class="btn btn-default" type="file" name="URL" />
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Create" class="btn btn-primary" />
-                            </div>
-                        </form>
+                        <div class="level6_3">
+                            <ul style="list-style-type: none; display: flex;">
+                                @foreach (var image in models.Image)
+                                {
+                                    <li>
+                                        <img src="@Html.DisplayFor(Model => image.URL)" style="height: 100px; width: 100px; margin-right: 5px;" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
             }
         </div>
     </div>
-
-    <div class="Twodiv">
-        <div class="col-md-4">
-            <form asp-action="CreatePost">
-                <div class="form-group">
-                    <label class="control-label"> Текст поста </label>
-                    <input name="Text" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
-    </div>
 </div>
+
+<style>
+    .Level1_1 {
+        background-color: rgb(0, 0, 0, 0.3);
+        height: 80%;
+        width: 90%;
+        position: fixed;
+        display: inline-block;
+        left: 5%;
+        top: 13.8%;
+        word-wrap: break-word;
+        overflow-y: scroll;
+        box-shadow: 15px 20px 30px rgba(0,0,0,0.3), 15px 20px 20px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+
+    .Level1_1::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    .Level2_2 {
+]        margin-top: 2%;
+    }
+
+    .Level4_1 {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        margin-left: 18px;
+        margin-right: 18px;
+        padding-top: 2.89rem;
+        background-color: rgb(0, 0, 0, 0.09);
+        border-radius: 16px;
+        border-bottom: 2px solid black;
+    }
+
+    .level5_1 {
+        display: flex;
+    }
+
+    .level6_1 {
+        display: inline-block;
+        height: 150px;
+        width: 750px;
+        font-size: 18px;
+        margin-left: 20px;
+    }
+   
+    .level6_2 {
+        display: inline-block;
+        margin-top: 2.1%;
+        margin-left: 1rem;
+        background-color: rgb(0, 0, 0, 0.21);
+        border-radius: 18px;
+        height: 30px;
+        width: 80px;
+        padding-left: 10px;
+    }
+
+    .level6_3 {
+        display: inline-block;
+    }
+
+
+</style>
 

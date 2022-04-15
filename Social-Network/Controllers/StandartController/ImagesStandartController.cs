@@ -47,6 +47,7 @@ namespace Social_Network.Controllers.StandartController
         // GET: ImagesStandart/Create
         public IActionResult Create()
         {
+            ViewData["PostId"] = new SelectList(_context.Posts, "Id", "CreateAt");
             return View();
         }
 
@@ -55,7 +56,7 @@ namespace Social_Network.Controllers.StandartController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Post, CreateAt")] Images images, IFormFile fileToPost)
+        public async Task<IActionResult> Create([Bind("Id, PostId, CreateAt")] Images images, IFormFile fileToPost)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +66,7 @@ namespace Social_Network.Controllers.StandartController
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Post"] = new SelectList(_context.Posts, "Id", "CreateAt", images.Post);
+            ViewData["PostId"] = new SelectList(_context.Posts, "Id", "CreateAt", images.PostId);
             return View(images);
         }
 

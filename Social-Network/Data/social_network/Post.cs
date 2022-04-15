@@ -13,6 +13,8 @@ namespace Social_Network.Data.social_network
         public Guid Id { get; set;}
 
 
+        public string AuthorId { get; set; }
+
         public User Author { get; set; }
 
         public string Text { get; set; }

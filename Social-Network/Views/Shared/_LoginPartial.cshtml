@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
+
+@model Social_Network.Data.social_network.Post
 @inject SignInManager<Social_Network.Data.social_network.User> SignInManager
 @inject UserManager<Social_Network.Data.social_network.User> UserManager
 @{
@@ -18,11 +20,11 @@ else
             <img class="imgFone" src="/storage/imgFone/FoneOne1.jpg" />
         </div>
 
-        <div class="mySlides" >
+        <div class="mySlides">
             <img class="imgFone" src="/storage/imgFone/FoneTwo.jpg" />
         </div>
 
-        <div class="mySlides" >
+        <div class="mySlides">
             <img class="imgFone" src="/storage/imgFone/FoneThrea.jpg" />
         </div>
 
@@ -50,7 +52,7 @@ else
         box-shadow: 16px 25px 32px rgba(0,0,0,0.25), 16px 16px 16px rgba(0,0,0,0.22);
         text-align: center;
         z-index: 3;
-        margin-top: 1.5rem;
+        margin-top: 2.5rem;
     }
 
     .but1, .but2 {
@@ -81,6 +83,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 1600px) {
         .imgFone {
             width: 110vw;
@@ -88,6 +91,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 1500px) {
         .imgFone {
             width: 1000vw;
@@ -95,6 +99,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 1400px) {
         .imgFone {
             width: 1000vw;
@@ -102,6 +107,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 1300px) {
         .imgFone {
             width: 1000vw;
@@ -109,6 +115,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 1200px) {
         .imgFone {
             width: 1000vw;
@@ -116,6 +123,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 1100px) {
         .imgFone {
             width: 1000vw;
@@ -123,20 +131,22 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 1050px) {
         .imgFone {
             max-width: 1000vw;
             margin-right: -10rem;
         }
     }
+
     @@media screen and (max-width: 1000px) {
         .imgFone {
             width: 1000vw;
             margin-right: -10rem;
             height: 530px;
         }
-        
     }
+
     @@media screen and (max-width:900px) {
         .imgFone {
             max-width: 1000vw;
@@ -144,6 +154,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width:800px) {
         .imgFone {
             max-width: 1000vw;
@@ -151,6 +162,7 @@ else
             height: 530px;
         }
     }
+
     @@media screen and (max-width: 780px) {
 
         .imgFone {
@@ -170,8 +182,8 @@ else
             width: 150px;
             margin-right: 3rem;
         }
-
     }
+
     @@media screen and (max-width: 100px) {
 
         .imgFone {
@@ -180,12 +192,12 @@ else
             margin-right: -10rem;
             margin-left: -13.3rem;
         }
+
         .regMain {
             height: 80px;
             margin-top: 2.5rem;
         }
     }
-
 </style>
 
 <script>
