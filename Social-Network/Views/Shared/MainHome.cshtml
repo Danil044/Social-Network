@@ -13,7 +13,7 @@
     </div>
 
     <div class="pulse">
-        <a  asp-controller="MainHome" asp-action="MainHome"> <img src="@user.AvatarURL" class="ImgAvatar" /></a>
+        <a  asp-controller="MainHome" asp-action="MainHome"  asp-route-id="@user.Id"> <img src="@user.AvatarURL" class="ImgAvatar" /></a>
     </div>
 
     <div class="HelpsName">
@@ -54,8 +54,8 @@
         height: 160px;
         width: 160px;
         border-radius: 90px;
-        margin-top: -15px;
-        margin-left: -13px;
+        margin-top: -16px;
+        margin-left: -16.4px;
     }
 
     .pulse {

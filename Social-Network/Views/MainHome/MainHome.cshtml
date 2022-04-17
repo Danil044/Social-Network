@@ -21,14 +21,12 @@
 
                             <div class="Level2_1">
                                 <hr class="HR1" />
-
                                 <div class="Level3_1">
                                     <p style="color: rgb(0, 0, 0, 0.7);">@User.Identity.Name</p>
                                 </div>
                                 <div class="Level3_2">
                                     <p style="color: rgb(0, 0, 0, 0.66); font-size: 12px; margin-top: -20px;">@user.Surname_Name</p>
                                 </div>
-
                             </div>
 
                             <div class="Level2_2">
@@ -63,14 +61,6 @@
 
                         </div>
                     </li>
-
-                    <li class="nav-item ExitHome">
-
-                    </li>
-
-                    <li class="nav-item">
-
-                    </li>
                 </ul>
             </header>
         </div>
@@ -82,46 +72,104 @@
                     <div class="Level4_1">
 
                         <div class="level5_1">
-                            <a asp-controller="MainHome" asp-route-id="@item.Id" style="text-decoration: none; text-align: justify;">
-                                <header><p style="color: black; font-size: 18px;">@Html.DisplayFor(Model => item.Text)</p></header>
-                            </a>
+
+                            <div style=" position: relative; left: 10px; top: 10px;">
+                                <div style="display: inline-block;">
+                                    <img src="@Html.DisplayFor(Model => item.Author.AvatarURL)" style="height: 40px; width: 40px; border-radius: 40px;" />
+                                </div>
+                                <div style="display: inline-block;">
+                                    <p style="font-size: 18px; margin-left: 8px; margin-top: -3px;">@Html.DisplayFor(Model => item.Author.UserName)</p>
+                                </div>
+                            </div>
+                    
 
                         </div>
 
                         <div class="level5_2">
-                            <ul style="list-style-type: none; display: flex;">
-                                @foreach (var image in item.Image)
-                                {
-                                    @if (item.Image != null)
+
+                            <div class="level6_1">
+                                <p style="color: black; font-size: 18px; text-align: justify;">@Html.DisplayFor(Model => item.Text)</p>
+                            </div>
+
+                            <div class="level6_2">
+                                <ul style="list-style-type: none; display: flex;">
+                                    @foreach (var image in item.Image)
                                     {
-                                        <li>
-                                            <img src="@Html.DisplayFor(Model => image.URL)" style="height: 250px; width: 250px;" />
-                                        </li>
+                                        @if (item.Image != null)
+                                        {
+                                            <li>
+                                                <img src="@Html.DisplayFor(Model => image.URL)" style="height: 250px; width: 250px; border-radius: 10px;" />
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <img src="/storage/icon/warning.png" style="height: 250px; width: 250px;" />
+                                            </li>
+                                        }
                                     }
-                                    else
-                                    {
-                                        <li>
-                                            <img src="/storage/icon/warning.png" style="height: 250px; width: 250px;" />
-                                        </li>
-                                    }
-                                }
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="LikeHime">
+                        <div class="LikeHime" style="display: inline-block;">
                             <form asp-action="CreateLike">
+                                <input type="hidden" name="AuthorId" value="@ViewBag.AuthorId" />
                                 <input type="hidden" name="PostId" value="@item.Id" />
-                                <button style="background-color: rgb(0, 0, 0, 0); border-bottom: none; border-top: none; border-right: none; border-left: none;"><img src="/storage/icon/premium-icon-like.png" style="height: 25px; width: 25px;" /></button>
+                                <button style="background-color: rgb(0, 0, 0, 0); border-bottom: none; border-top: none; border-right: none; border-left: none;"><img src="/storage/icon/kisspng-united-states-logo-business-company-white-heart.png" style="height: 25px; width: 25px;" /></button>
                             </form>
+
+                            <div>
+
+                            </div>
+
                         </div>
+
+                        <div class="ComentsHome" style="display: inline-block;">
+                            <div style="display: inline-block;">
+                                <form asp-action="CreateComents">
+                                    <input type="hidden" name="AuthorId" value="@ViewBag.AuthorId" />
+                                    <input type="hidden" name="PostId" value="@item.Id" />
+                                    <div style="display: inline-block; margin-top: 5px;">
+                                        <input type="Text" name="Text" class="form-control" style="border-bottom: 1px solid white; border-top: none; border-left: none; border-right: none; background-color: rgb(0, 0, 0, 0.1); border-radius: 10px; color: white;" />
+                                    </div>
+                                    <div style="display: inline-block;">
+                                        <input type="submit" value="ok" class="btn btn-outline-light" style="border-radius: 100px;" />
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div style="display: inline-block; margin-left: 20px;">
+                                <p>Comments: </p>
+                            </div>
+
+                            <div style="display: inline-block; margin-left: 20px; word-wrap: break-word; overflow-y: scroll; height: 50px; width: 80px;">
+
+                                <div>
+                                    @foreach (var coment in item.Comments)
+                                    {
+                                        <div>
+                                            <div style="display: inline-block;">
+                                                <img src="@Html.DisplayFor(Model => coment.Author.AvatarURL)" style="height: 25px; width: 25px; border-radius: 40px;" />
+                                            </div>
+                                            <div style="display: inline-block;">
+                                                <p style="font-size: 16px; margin-left: 8px; margin-top: -3px;">@Html.DisplayFor(Model => coment.Text)</p>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                      
 
                     </div>
                 }
                 else
                 {
-                    <div>
-                        l
-                    </div>
+                   
                 }
             }
         </div>
@@ -215,24 +263,25 @@
     }
 
     .Level4_1 {
-        padding-top: 15px;
+        padding-top: 30px;
         padding-left: 25px;
-        border-top: 1px solid white;
         margin-top: 20px;
         border-bottom: 1px solid white;
         margin-bottom: 30px;
-        margin-left: 10px;
-        margin-right: 10px;
-        height: 320px;
+        margin-left: 20px;
+        margin-right: 20px;
+        height: 420px;
+        background-color: rgb(0, 0, 0, 0.11);
+        border-radius: 15px;
     }
 
-    .level5_1{
+    .level6_1 {
         display: inline-block;
-        height: 50%;
-        width: 68%;        
+        height: 100px;
+        width: 68%;
     }
 
-    .level5_2 {
+    .level6_2 {
         display: inline-block;
     }
 
@@ -246,6 +295,10 @@
         margin-top: 2.4rem;
         left: 7.6%;
         box-shadow: 6px 6px 6px rgba(0,0,0,0.08), 6px 6px 6px rgba(0,0,0,0.08), 6px 6px 6px rgba(0,0,0,0.08);
+    }
+
+    .LikeHime{
+        margin-top: -5%;
     }
 
     @@media screen and (max-width: 1300px) {

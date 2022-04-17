@@ -24,12 +24,17 @@ namespace Social_Network.Controllers
             _appEnvironment = appEnvironment;
         }
 
-        public async Task<IActionResult> MainHome()
+        public async Task<IActionResult> MainHome(string id)
         {
+            var autersID = _context.Users.First(a => a.Id == id);
+
+            ViewData["AuthorId"] = autersID.Id;
+
             var post = _context.Posts
                .Include(c => c.Image)
                .Include(c => c.Author)
-               .Include(c => c.Likes);
+               .Include(c => c.Likes)
+               .Include(c => c.Comments);
          
 
             if (post == null)
@@ -42,14 +47,28 @@ namespace Social_Network.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateLike([Bind("Id,PostId,LikeInt,CreateAt")] Like like)
+        public async Task<IActionResult> CreateLike([Bind("Id,PostId, AuthorId, LikeInt,CreateAt")] Like like)
         {
             if (ModelState.IsValid)
             {
                 like.Id = Guid.NewGuid();
                 _context.Add(like);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(MainHome), new { Id = like.PostId });
+                return RedirectToAction(nameof(MainHome), new { Id = like.AuthorId });
+            }
+            return RedirectToAction(nameof(MainHome));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateComents([Bind("Id,Text,PostId, AuthorId, CreateAt")] Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                comment.Id = Guid.NewGuid();
+                _context.Add(comment);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(MainHome), new { Id = comment.AuthorId });
             }
             return RedirectToAction(nameof(MainHome));
         }

@@ -14,6 +14,7 @@ namespace Social_Network.Data.social_network
 
         public Guid PostId { get; set; }
         public Post Post { get; set; }
+        public string AuthorId { get; set; }
         public User Author { get; set; }
         public int LikeInt { get; set; }
         public DateTime CreateAt { get; set; }
